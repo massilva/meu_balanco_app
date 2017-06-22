@@ -12,13 +12,19 @@ ApplicationWindow {
         id: swipeView
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
-
         Page1 {
         }
-
         Page {
             Label {
-                text: qsTr("Second page")
+                color: '#27ae60'
+                text: qsTr("Quais foram os seus GANHOS no mês ?")
+                anchors.centerIn: parent
+            }
+        }
+        Page {
+            Label {
+                color: '#c0392b'
+                text: qsTr("Quais foram os seus GASTOS no mês ?")
                 anchors.centerIn: parent
             }
         }
@@ -28,10 +34,13 @@ ApplicationWindow {
         id: tabBar
         currentIndex: swipeView.currentIndex
         TabButton {
-            text: qsTr("First")
+            text: qsTr("Dashboard")
         }
         TabButton {
-            text: qsTr("Second")
+            text: qsTr("Receitas")
+        }
+        TabButton {
+            text: qsTr("Despesas")
         }
     }
 }
