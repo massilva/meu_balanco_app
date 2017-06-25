@@ -12,21 +12,16 @@ ApplicationWindow {
         id: swipeView
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
-        Page1 {
+
+        Balanco {
         }
-        Page {
-            Label {
-                color: '#27ae60'
-                text: qsTr("Quais foram os seus GANHOS no mês ?")
-                anchors.centerIn: parent
-            }
+
+        Receita{
+
         }
-        Page {
-            Label {
-                color: '#c0392b'
-                text: qsTr("Quais foram os seus GASTOS no mês ?")
-                anchors.centerIn: parent
-            }
+
+        Despesa{
+
         }
     }
 
