@@ -3,29 +3,45 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
 Item {
-    RowLayout {
-        anchors.topMargin: 20
-        anchors.top: parent.top
-        anchors.horizontalCenter: parent.horizontalCenter
-        spacing: 10
-        Label{
-            text: 'Último lançamento (R$) '
-        }
-        TextField {
-           placeholderText: '1000.00'
-           validator: DoubleValidator{}
-           horizontalAlignment: TextInput.AlignHCenter
-           inputMethodHints: Qt.ImhFormattedNumbersOnly
-        }
-        RoundButton {
-            text: '\u002B'
+    ListModel {id: despesas}
+    Component {
+        id: itemList
+        ColumnLayout{
+            Repeater{
+                model: despesas
+                Text { text: 'R$ ' + model.value; color: '#c0392b'}
+            }
         }
     }
-    RowLayout{
-        anchors.centerIn: parent
-        Label {
-            color: '#c0392b'
-            text: qsTr("Quais foram os seus GASTOS no mês ?")
+    ColumnLayout{
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        RowLayout {
+            anchors.topMargin: 20
+            spacing: 10
+            Label{
+              text: 'Último lançamento (R$) '
+            }
+            TextField {
+                id: receitaTF
+                placeholderText: Number.fromLocaleString(Qt.locale(), 1000);
+                validator: DoubleValidator{}
+                horizontalAlignment: TextInput.AlignHCenter
+                inputMethodHints: Qt.ImhFormattedNumbersOnly
+            }
+            RoundButton {
+                text: '\u002B'
+                onClicked: {
+                    despesas.append({value: receitaTF.text})
+                }
+            }
+        }
+        RowLayout {
+            anchors.horizontalCenter: parent.horizontalCenter
+            ListView {
+                model: despesas
+                delegate: itemList
+            }
         }
     }
 }

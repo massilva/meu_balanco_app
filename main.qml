@@ -6,7 +6,7 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Meu balanço")
+    title: qsTr("Minhas finanças")
 
     SwipeView {
         id: swipeView
@@ -29,7 +29,7 @@ ApplicationWindow {
         id: tabBar
         currentIndex: swipeView.currentIndex
         TabButton {
-            text: qsTr("Dashboard")
+            text: qsTr("Balanço")
         }
         TabButton {
             text: qsTr("Receitas")
