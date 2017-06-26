@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
 Item {
@@ -12,12 +12,13 @@ Item {
           text: 'Último lançamento (R$) '
         }
         TextField {
-           placeholderText: "1.000.000,00"
+           placeholderText: '1000.00'
            validator: DoubleValidator{}
            horizontalAlignment: TextInput.AlignHCenter
+           inputMethodHints: Qt.ImhFormattedNumbersOnly
         }
-        Button {
-            text: qsTr('+')
+        RoundButton {
+            text: '\u002B'
         }
     }
     RowLayout{

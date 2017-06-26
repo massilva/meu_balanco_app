@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Balanco.qml</file>
-        <file>BalancoForm.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>Despesa.qml</file>
         <file>Receita.qml</file>
